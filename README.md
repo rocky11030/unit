@@ -29,6 +29,7 @@ ceph基本命令
 1. [deployment_nginx](02-deployment_nginx.md)
 1. [Node_Exporter](03-node_exporter.md)
 1. [Job_CronJob](04-Job_CronJob.md)
+1. [PV_PVC](05-Pv_Pvc.md)
 
 ## sql查询列表
 
