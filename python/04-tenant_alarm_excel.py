@@ -90,7 +90,7 @@ def remove_file(xls_name):
 
 def main():
     months = 1 #设置获取信息月份，当前月份为0，下一个月为1,大下个月为2，
-    get_date ="SELECT description,`name`,end_date,email  FROM tenant WHERE PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( end_date, '%Y%m' ) ) <12 and PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( end_date, '%Y%m' ) ) >0 OR  PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( end_date, '%Y%m' ) ) >=-"+str(months)+" AND TO_DAYS( NOW( ) ) - TO_DAYS( end_date) < 0"
+    get_date ="SELECT description,`name`,end_date,email  FROM tenant WHERE PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( end_date, '%Y%m' ) ) <12 and PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( end_date, '%Y%m' ) ) >=0 OR  PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( end_date, '%Y%m' ) ) >=-"+str(months)+" AND TO_DAYS( NOW( ) ) - TO_DAYS( end_date) < 0"
     get_info = "SELECT name as 租户名称,email as 登录名称,DATE_FORMAT(end_date,'%Y-%m-%d') as 到期时间,description as 租户备注 FROM tenant ORDER BY name"
     xls_name=str(datetime.now().strftime('%Y-%m-%d')) + ".xls"
     receivers = ['***@126.com','***@163.com']  # 接收邮箱
