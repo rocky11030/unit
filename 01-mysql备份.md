@@ -16,4 +16,12 @@
 # 0 1 * * * root /bin/bash /data/mysqlbackup/mysql_backup.sh >> /tmp/mysql_backup.log 2>&1
 # service crond restart (centos) or service cron restart (ubuntu)
 ```
-
+>忽略备份openstack的垃圾数据
+``` bash
+$MYCMD -h $HOST -u$USER -p$PSWD $MYSQLDB \
+ --ignore-table=keystone.token \
+ --ignore-table=gnocchi.instance_history \
+ --ignore-table=gnocchi.resource_history \
+ --ignore-table=graph.endpoint_counter \
+ --ignore-table=aodh.alarm_history > $BAKDIR/$MYSQLBAK.sql
+```
